@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <!DOCTYPE display PUBLIC "-//Liferay//DTD Display 6.2.0//EN" "http://www.liferay.com/dtd/liferay-display_6_2_0.dtd">
+
+<display>
+	<category name="Charts &amp; Filters">
+		<portlet id="Ext Filter"></portlet>
+		<portlet id="Chart Common"></portlet>
+	</category>
+	<category name="Chart Configuration">
+		<portlet id="Chart Datasource"></portlet>
+		<portlet id="Connection"></portlet>
+		<portlet id="Filter"></portlet>
+	</category>
+</display>

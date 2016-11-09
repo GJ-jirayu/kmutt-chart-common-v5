@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://java.sun.com/xml/ns/j2ee"
+         xmlns:web="http://xmlns.jcp.org/xml/ns/javaee"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+         id="WebApp_ID" version="2.4">
+    <display-name>Filter Chart Portlet</display-name>
+    <description>>Filter Chart Portlet application</description>
+    <!--
+    <listener>
+        <listener-class>org.directwebremoting.servlet.DwrListener</listener-class>
+    </listener>
+    -->
+    <context-param>
+        <param-name>log4jConfigLocation</param-name>
+        <param-value>/WEB-INF/log4j.properties</param-value>
+    </context-param>
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>
+            /WEB-INF/context/common.xml
+            <!--  /WEB-INF/context/research-data-hibernate.xml  -->
+        </param-value>
+    </context-param>
+    <listener>
+        <listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
+    </listener>
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+
+    <servlet>
+        <servlet-name>view-servlet</servlet-name>
+        <servlet-class>org.springframework.web.servlet.ViewRendererServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>view-servlet</servlet-name>
+        <url-pattern>/WEB-INF/servlet/view</url-pattern>
+    </servlet-mapping>
+    <jsp-config>
+        <taglib>
+            <taglib-uri>http://liferay.com/tld/ui</taglib-uri>
+            <taglib-location>/WEB-INF/tld/liferay-ui.tld</taglib-location>
+        </taglib>
+        <taglib>
+            <taglib-uri>http://liferay.com/tld/util</taglib-uri>
+            <taglib-location>/WEB-INF/tld/liferay-util.tld</taglib-location>
+        </taglib>
+    </jsp-config>
+</web-app>

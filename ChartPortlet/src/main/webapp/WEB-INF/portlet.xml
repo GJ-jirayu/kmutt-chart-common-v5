@@ -1,0 +1,133 @@
+<?xml version="1.0"  encoding="UTF-8"?>
+
+<portlet-app version="2.0"
+             xmlns="http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd"
+	         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	         xsi:schemaLocation="http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd
+	                             http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd">
+<!--  
+<portlet-app xmlns="http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd" 
+			xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+			xsi:schemaLocation="http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd 
+								http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd" 
+								version="2.0">
+								--> 
+      <portlet>
+	      <portlet-name>Ext Filter</portlet-name>
+	      <portlet-class>org.springframework.web.portlet.DispatcherPortlet</portlet-class>
+	      <init-param>
+	         <name>contextConfigLocation</name>
+	         <value>
+	         	/WEB-INF/context/common.xml
+	         	/WEB-INF/context/external-filter-portlet.xml
+	         </value>
+	      </init-param>
+	      <supports>
+	         <mime-type>text/html</mime-type>
+	         <portlet-mode>view</portlet-mode>
+	         <portlet-mode>edit</portlet-mode>
+	      </supports>
+	      <portlet-info>
+	         <title>External Filters</title>
+	      </portlet-info>
+          <!--
+          <security-role-ref>
+              <role-name>kmutt-user</role-name>
+          </security-role-ref>
+          -->
+          <supported-publishing-event xmlns:x="http://liferay.com/events">
+              <qname>x:paramOverride</qname>
+          </supported-publishing-event>
+      </portlet>
+
+    <portlet>
+        <portlet-name>Chart Common</portlet-name>
+        <portlet-class>org.springframework.web.portlet.DispatcherPortlet</portlet-class>
+        <init-param>
+            <name>contextConfigLocation</name>
+            <value>
+            	/WEB-INF/context/common.xml
+            	/WEB-INF/context/chart-common-portlet.xml
+            </value>
+        </init-param>
+        <supports>
+            <mime-type>text/html</mime-type>
+            <portlet-mode>view</portlet-mode>
+            <portlet-mode>edit</portlet-mode>
+        </supports>
+        <portlet-info>
+            <title>Common Charts</title>
+        </portlet-info>
+        
+        <!--
+        <security-role-ref>
+            <role-name>kmutt-user</role-name>
+        </security-role-ref>
+        -->
+        <supported-processing-event xmlns:x="http://liferay.com/events">
+            <qname>x:paramOverride</qname>
+        </supported-processing-event>
+    </portlet>
+    <!--  phase 2 -->
+      <portlet>
+	      <portlet-name>Chart Datasource</portlet-name>
+	      <portlet-class>org.springframework.web.portlet.DispatcherPortlet</portlet-class>
+	      <init-param>
+	         <name>contextConfigLocation</name>
+	         <value>
+	         	/WEB-INF/context/common.xml
+	         	/WEB-INF/context/chart-datasource-portlet.xml
+	         </value>
+	      </init-param>
+	      <supports>
+	         <mime-type>text/html</mime-type>
+	         <portlet-mode>view</portlet-mode>
+	         <portlet-mode>edit</portlet-mode>
+	      </supports>
+	      <portlet-info>
+	         <title>Chart Datasource</title>
+	      </portlet-info>
+	  </portlet>
+	   <portlet>
+	      <portlet-name>Connection</portlet-name>
+	      <portlet-class>org.springframework.web.portlet.DispatcherPortlet</portlet-class>
+	      <init-param>
+	         <name>contextConfigLocation</name>
+	         <value>
+	         	/WEB-INF/context/common.xml
+	         	/WEB-INF/context/connection-portlet.xml
+	         </value>
+	      </init-param>
+	      <supports>
+	         <mime-type>text/html</mime-type>
+	         <portlet-mode>view</portlet-mode>
+	         <portlet-mode>edit</portlet-mode>
+	      </supports>
+	      <portlet-info>
+	         <title>database connection</title>
+	      </portlet-info>
+	  </portlet>
+	   <portlet>
+	      <portlet-name>Filter</portlet-name>
+	      <portlet-class>org.springframework.web.portlet.DispatcherPortlet</portlet-class>
+	      <init-param>
+	         <name>contextConfigLocation</name>
+	         <value>
+	         	/WEB-INF/context/common.xml
+	         	/WEB-INF/context/filter-portlet.xml
+	         </value>
+	      </init-param>
+	      <supports>
+	         <mime-type>text/html</mime-type>
+	         <portlet-mode>view</portlet-mode>
+	         <portlet-mode>edit</portlet-mode>
+	      </supports>
+	      <portlet-info>
+	         <title>Filter</title>
+	      </portlet-info>
+	  </portlet>
+    <event-definition>
+        <qname xmlns:x="http://liferay.com/events">x:paramOverride</qname>
+        <value-type>th.ac.kmutt.chart.model.FilterInstanceM</value-type>
+    </event-definition>
+</portlet-app>

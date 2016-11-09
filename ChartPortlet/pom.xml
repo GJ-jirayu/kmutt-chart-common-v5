@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.imake.kmutt.chart</groupId>
+    <artifactId>ChartPortlet</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <packaging>war</packaging>
+    <name>ChartPortlet</name>
+    <repositories>
+        <repository>
+            <id>maven-restlet</id>
+            <name>Restlet repository</name>
+            <url>http://maven.restlet.com</url>
+        </repository>
+    </repositories>
+    <properties>
+        <junit.version>4.11</junit.version>
+        <spring.version>4.2.1.RELEASE</spring.version>
+        <log4j-api.version>2.3</log4j-api.version>
+        <log4j.version>1.2.17</log4j.version>
+        <xstream.version>1.4.8</xstream.version>
+        <jstl.version>1.2</jstl.version>
+        <commons-fileupload.version>1.3.1</commons-fileupload.version>
+        <httpclient-version>4.5.1</httpclient-version>
+        <dwr-version>3.0.0-RELEASE</dwr-version>
+        <dom4j-version>1.6.1</dom4j-version>
+        <poi.path>/Users/imake/Desktop/poi-3.12/poi-3.12-20150511.jar</poi.path>
+
+        <ChartModelShare-version>1.0-SNAPSHOT</ChartModelShare-version>
+        <ChartConverter-version>1.0-SNAPSHOT</ChartConverter-version>
+    </properties>
+    <dependencies>
+        <!-- String Framework -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-beans</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc-portlet</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+
+        <!-- Log4j -->
+
+                <dependency>
+                    <groupId>log4j</groupId>
+                    <artifactId>log4j</artifactId>
+                    <version>${log4j.version}</version>
+                </dependency>
+        <!--
+                               <dependency>
+                                   <groupId>org.apache.logging.log4j</groupId>
+                                   <artifactId>log4j-core</artifactId>
+                                   <version>${log4j-api.version}</version>
+                               </dependency>
+                               <dependency>
+                                   <groupId>org.apache.logging.log4j</groupId>
+                                   <artifactId>log4j-api</artifactId>
+                                   <version>${log4j-api.version}</version>
+                               </dependency>
+
+                        <dependency>
+                            <groupId>org.slf4j</groupId>
+                            <artifactId>slf4j-api</artifactId>
+                            <version>1.7.12</version>
+                        </dependency>
+                        <dependency>
+                            <groupId>org.slf4j</groupId>
+                            <artifactId>slf4j-log4j12</artifactId>
+                            <version>1.7.12</version>
+                        </dependency>
+                  -->
+        <!-- Portlet -->
+        <dependency>
+            <groupId>javax.portlet</groupId>
+            <artifactId>portlet-api</artifactId>
+            <version>2.0</version>
+            <scope>provided</scope>
+        </dependency>
+        <!-- Portal -->
+        <dependency>
+            <groupId>com.liferay.portal</groupId>
+            <artifactId>portal-service</artifactId>
+            <version>6.2.3</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- Xstream -->
+        <dependency>
+            <groupId>com.thoughtworks.xstream</groupId>
+            <artifactId>xstream</artifactId>
+            <version>${xstream.version}</version>
+        </dependency>
+
+        <!-- Common fileupload -->
+        <dependency>
+            <groupId>commons-fileupload</groupId>
+            <artifactId>commons-fileupload</artifactId>
+            <version>${commons-fileupload.version}</version>
+        </dependency>
+
+        <!-- Servlet -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
+            <version>${jstl.version}</version>
+        </dependency>
+
+        <!-- Test include comtum jar -->
+        <!-- install before -->
+        <!--
+        <dependency>
+            <groupId>com.google.code</groupId>
+            <artifactId>kaptcha</artifactId>
+            <version>2.3.2</version>
+        </dependency>
+        -->
+        <dependency>
+            <groupId>th.ac.kmutt.chart</groupId>
+            <artifactId>ChartModelShare</artifactId>
+            <version>${ChartModelShare-version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.codehaus.jettison</groupId>
+            <artifactId>jettison</artifactId>
+            <version>1.3.7</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.4</version>
+        </dependency>
+        <!--
+        <dependency>
+            <groupId>com.sun.jersey</groupId>
+            <artifactId>jersey-json</artifactId>
+            <version>1.19</version>
+        </dependency>
+      -->
+
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>${httpclient-version}</version>
+        </dependency> 
+        <dependency>
+            <groupId>org.directwebremoting</groupId>
+            <artifactId>dwr</artifactId>
+            <version>${dwr-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>dom4j</groupId>
+            <artifactId>dom4j</artifactId>
+            <version>${dom4j-version}</version>
+        </dependency>
+
+        <!-- Servlet -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>3.0.1</version>
+            <scope>provided</scope>
+        </dependency>
+        <!-- Portal -->
+        <!--
+        <dependency>
+            <groupId>com.liferay.portal</groupId>
+            <artifactId>portal-service</artifactId>
+            <version>6.2.3</version>
+            <scope>provided</scope>
+        </dependency>
+        -->
+        <dependency>
+            <groupId>th.co.imake.chart</groupId>
+            <artifactId>ChartConverter</artifactId>
+            <version>${ChartConverter-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>6.3.1</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+    <build>
+        <finalName>ChartPortlet</finalName>
+    	<plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.3</version>
+                <configuration>
+                    <source>1.7</source>
+                    <target>1.7</target>
+                    <webResources>
+                </webResources>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
