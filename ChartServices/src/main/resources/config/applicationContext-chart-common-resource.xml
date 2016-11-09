@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd">
+ 	<bean id="aoeResource"
+		class="th.ac.kmutt.chart.rest.resource.AoeResource"
+		scope="prototype"> 
+	</bean>
+	<bean id="chartResource"
+		  class="th.ac.kmutt.chart.rest.resource.ChartResource"
+		  scope="prototype">
+	</bean>
+	<bean id="chartfeatureResource"
+		  class="th.ac.kmutt.chart.rest.resource.ChartFeatureResource"
+		  scope="prototype">
+	</bean>
+	<bean id="chartfeatureinstanceResource"
+		  class="th.ac.kmutt.chart.rest.resource.ChartFeatureInstanceResource"
+		  scope="prototype">
+	</bean>
+	<bean id="chartfeaturemappingResource"
+		  class="th.ac.kmutt.chart.rest.resource.ChartFeatureMappingResource"
+		  scope="prototype">
+	</bean>
+	<bean id="chartfilterinstanceResource"
+		  class="th.ac.kmutt.chart.rest.resource.ChartFilterInstanceResource"
+		  scope="prototype">
+	</bean>
+	<bean id="chartinstanceResource"
+		  class="th.ac.kmutt.chart.rest.resource.ChartInstanceResource"
+		  scope="prototype">
+	</bean>
+	<bean id="commentResource"
+		  class="th.ac.kmutt.chart.rest.resource.CommentResource"
+		  scope="prototype">
+	</bean>
+	<bean id="featureResource"
+		  class="th.ac.kmutt.chart.rest.resource.FeatureResource"
+		  scope="prototype">
+	</bean>
+	<bean id="filterResource"
+		  class="th.ac.kmutt.chart.rest.resource.FilterResource"
+		  scope="prototype">
+	</bean>
+	<bean id="filterInstanceResource"
+		  class="th.ac.kmutt.chart.rest.resource.FilterInstanceResource"
+		  scope="prototype">
+	</bean>
+	<bean id="servicechartmappingResource"
+		  class="th.ac.kmutt.chart.rest.resource.ServiceChartMappingResource"
+		  scope="prototype">
+	</bean>
+	<bean id="serviceResource"
+		  class="th.ac.kmutt.chart.rest.resource.ServiceResource"
+		  scope="prototype">
+	</bean>
+	<bean id="servicefiltermappingResource"
+		  class="th.ac.kmutt.chart.rest.resource.ServiceFilterMappingResource"
+		  scope="prototype">
+	</bean>
+	<bean id="fusionChartResource"
+		  class="th.ac.kmutt.chart.rest.resource.FusionChartResource"
+		  scope="prototype">
+	</bean>
+	<bean id="connectionResource"
+		  class="th.ac.kmutt.chart.rest.resource.ConnectionResource"
+		  scope="prototype">
+	</bean>
+	<bean id="userResource"
+		  class="th.ac.kmutt.chart.rest.resource.UserResource"
+		  scope="prototype">
+	</bean>
+	<bean id="systemResource"
+		  class="th.ac.kmutt.chart.rest.resource.SystemResource"
+		  scope="prototype">
+	</bean>
+<!--
+	<bean id="userProfileResource"
+		class="com.gl.finwiz.core.userprofile.rest.resource.UserProfileResource"
+		scope="prototype">
+		<property name="xstream" ref="xstream"></property>
+	</bean> 
+	 -->
+
+</beans>

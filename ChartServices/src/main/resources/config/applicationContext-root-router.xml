@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd">
+
+	<bean id="root" class="org.restlet.ext.spring.SpringRouter">
+		<property name="attachments">
+			<map>
+			    <entry key="/aoe">
+					<bean class="org.restlet.ext.spring.SpringFinder">
+						<lookup-method name="create"
+							bean="aoeResource" />
+					</bean>
+				</entry>
+				<entry key="/chart">
+					<bean class="org.restlet.ext.spring.SpringFinder">
+						<lookup-method name="create"
+									   bean="chartResource" />
+					</bean>
+				</entry>
+
+				<entry key="/chartfeature">
+					<bean class="org.restlet.ext.spring.SpringFinder">
+						<lookup-method name="create"
+									   bean="chartfeatureResource" />
+					</bean>
+				</entry>
+
+				<entry key="/chartfeatureinstance">
+					<bean class="org.restlet.ext.spring.SpringFinder">
+						<lookup-method name="create"
+									   bean="chartfeatureinstanceResource" />
+					</bean>
+				</entry>
+
+				<entry key="/chartfeaturemapping">
+					<bean class="org.restlet.ext.spring.SpringFinder">
+						<lookup-method name="create"
+									   bean="chartfeaturemappingResource" />
+					</bean>
+				</entry>
+
+				<entry key="/chartfilterinstance">
+					<bean class="org.restlet.ext.spring.SpringFinder">
+						<lookup-method name="create"
+									   bean="chartfilterinstanceResource" />
+					</bean>
+				</entry>
+
+				<entry key="/chartinstance">
+					<bean class="org.restlet.ext.spring.SpringFinder">
+						<lookup-method name="create"
+									   bean="chartinstanceResource" />
+					</bean>
+				</entry>
+
+				<entry key="/comment">
+					<bean class="org.restlet.ext.spring.SpringFinder">
+						<lookup-method name="create"
+									   bean="commentResource" />
+					</bean>
+				</entry>
+
+
+				<entry key="/feature">
+					<bean class="org.restlet.ext.spring.SpringFinder">
+						<lookup-method name="create"
+									   bean="featureResource" />
+					</bean>
+				</entry>
+
+				<entry key="/filter">
+					<bean class="org.restlet.ext.spring.SpringFinder">
+						<lookup-method name="create"
+									   bean="filterResource" />
+					</bean>
+				</entry>
+
+				<entry key="/filterInstance">
+					<bean class="org.restlet.ext.spring.SpringFinder">
+						<lookup-method name="create"
+									   bean="filterInstanceResource" />
+					</bean>
+				</entry>
+
+				<entry key="/servicechartmapping">
+					<bean class="org.restlet.ext.spring.SpringFinder">
+						<lookup-method name="create"
+									   bean="servicechartmappingResource" />
+					</bean>
+				</entry>
+
+				<entry key="/service">
+					<bean class="org.restlet.ext.spring.SpringFinder">
+						<lookup-method name="create"
+									   bean="serviceResource" />
+					</bean>
+				</entry>
+
+				<entry key="/servicefiltermapping">
+					<bean class="org.restlet.ext.spring.SpringFinder">
+						<lookup-method name="create"
+									   bean="servicefiltermappingResource" />
+					</bean>
+				</entry>
+				
+				<entry key="/fusionchart">
+					<bean class="org.restlet.ext.spring.SpringFinder">
+						<lookup-method name="create"
+									   bean="fusionChartResource" />
+					</bean>
+				</entry>
+				<entry key="/connection">
+					<bean class="org.restlet.ext.spring.SpringFinder">
+						<lookup-method name="create"
+									   bean="connectionResource" />
+					</bean>
+				</entry>
+				<entry key="/user">
+					<bean class="org.restlet.ext.spring.SpringFinder">
+						<lookup-method name="create"
+									   bean="userResource" />
+					</bean>
+				</entry>
+				<entry key="/system">
+					<bean class="org.restlet.ext.spring.SpringFinder">
+						<lookup-method name="create"
+									   bean="systemResource" />
+					</bean>
+				</entry>
+			</map>
+		</property>
+		<!--<property name="routes[2].template.variables[URI]">
+			<bean class="org.restlet.util.Variable">
+				<constructor-arg
+					ref="org.restlet.util.Variable.TYPE_URI_ALL" />
+			</bean>
+		</property>
+	--></bean>
+
+	<bean id="org.restlet.routing.Variable.TYPE_URI_ALL"
+		class="org.springframework.beans.factory.config.FieldRetrievingFactoryBean" />
+ 
+</beans>

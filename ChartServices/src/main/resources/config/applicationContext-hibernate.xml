@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc" xmlns:jee="http://www.springframework.org/schema/jee"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+			http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
+			http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.1.xsd
+			http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-4.1.xsd
+			http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-4.1.xsd 
+			http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.1.xsd">
+
+
+
+	<!-- ========================= RESOURCE DEFINITIONS ========================= -->
+
+	<!-- Configurer that replaces ${...} placeholders with values from a properties 
+		file 
+	<context:property-placeholder location="classpath:jdbc.properties" />
+	-->
+	<context:component-scan base-package="th.ac.kmutt.chart" />
+	<context:annotation-config />
+	<context:mbean-export />
+
+	<bean id="jpaDialect" class="org.springframework.orm.jpa.vendor.HibernateJpaDialect" />
+
+	<bean id="jpaVendorAdapter" class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+		<property name="database" value="MYSQL" />
+		<property name="databasePlatform" value="org.hibernate.dialect.MySQL5InnoDBDialect" />
+	</bean>
+
+	<!--=== chart entity manager ===-->
+	<bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+		<property name="persistenceXmlLocation" value="classpath:META-INF/persistence.xml" />
+		<property name="persistenceUnitName" value="HibernatePersistenceUnit" />
+		<property name="jpaVendorAdapter" ref="jpaVendorAdapter" /> 
+		<property name="packagesToScan" value="th.ac.kmutt.chart.domain.*" />
+	</bean>
+  	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+		<property name="jpaDialect" ref="jpaDialect" />
+	</bean>
+		<tx:annotation-driven transaction-manager="transactionManager" />
+	
+	<!-- <jee:jndi-lookup id="dataSource" resource-ref="true" jndi-name="jdbc/chartdb"/> 
+		<jee:jndi-lookup id="liferayDataSource" resource-ref="true" jndi-name="jdbc/chartportaldb"/>
+	 -->
+
+	<!-- === liferay manager ==== -->
+	<bean id="liferayEntityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+		<property name="persistenceXmlLocation" value="classpath:META-INF/persistence.xml" />
+		<property name="persistenceUnitName" value="HibernatePersistenceLiferayUnit" />
+		<property name="jpaVendorAdapter" ref="jpaVendorAdapter" />
+	</bean>
+	<bean id="transactionManagerLiferay" class="org.springframework.orm.jpa.JpaTransactionManager">
+		<property name="entityManagerFactory" ref="liferayEntityManagerFactory" />
+		<property name="jpaDialect" ref="jpaDialect" />
+	</bean>	
+	
+	<tx:annotation-driven transaction-manager="transactionManagerLiferay" />
+	
+	<!--============================== Data warehouse =================================-->
+	
+	<bean id="entityManagerFactoryDwh"
+		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+		<property name="persistenceXmlLocation" value="classpath:META-INF/persistence.xml" />
+		<property name="persistenceUnitName" value="HibernatePersistenceUnitDwh" />
+		<property name="jpaVendorAdapter" ref="jpaVendorAdapterDwh" />
+	</bean>	
+	<bean id="transactionManagerDwh" class="org.springframework.orm.jpa.JpaTransactionManager">
+		<property name="entityManagerFactory" ref="entityManagerFactoryDwh" />
+		<property name="jpaDialect" ref="jpaDialect" />
+	</bean>
+	<bean id="jpaVendorAdapterDwh" class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+		<property name="database" value="MYSQL" />
+		<property name="databasePlatform" value="org.hibernate.dialect.MySQL5InnoDBDialect" />
+		<property name="showSql" value="false" />
+	</bean>
+	
+	<tx:annotation-driven transaction-manager="transactionManagerDwh" />
+	
+</beans>
